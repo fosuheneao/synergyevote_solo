@@ -1,0 +1,54 @@
+/* Microsoft Fluent UI Inspired Styling for Django Admin */
+:root {
+    --primary-color: #0078D4;  /* Fluent UI Blue */
+    --background-light: #F3F2F1;
+    --text-dark: #323130;
+    --button-hover: #005A9E;
+    --sidebar-bg: #F3F2F1;
+    --header-bg: #0078D4;
+    --header-text: white;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--background-light);
+}
+
+/* Change Sidebar Background */
+#header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Admin Buttons */
+button, input[type="submit"] {
+    background: var(--primary-color);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: var(--button-hover);
+}
+
+/* Sidebar */
+.module h2, .module caption {
+    color: var(--primary-color);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

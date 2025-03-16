@@ -1,0 +1,35 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<h1>📊 Voting Statistics</h1>
+
+<div>
+    <canvas id="votesChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function updateChart() {
+        fetch("{% url 'vote-stats-api' %}")
+            .then(response => response.json())
+            .then(data => {
+                let ctx = document.getElementById('votesChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.candidates,
+                        datasets: [{
+                            label: 'Votes Count',
+                            data: data.votes,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        }]
+                    }
+                });
+            });
+    }
+
+    updateChart();
+    setInterval(updateChart, 5000);  // Refresh every 5 seconds
+</script>
+{% endblock %}

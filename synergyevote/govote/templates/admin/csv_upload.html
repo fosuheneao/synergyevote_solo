@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>📂 Upload Voter Data (CSV)</h1>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="csv_file" required>
+    <button type="submit" class="button">Upload</button>
+</form>
+
+<p><strong>CSV Format:</strong></p>
+<pre>
+voter_id,firstname,lastname,email,tel,country,region,district,area,designation,can_vote,electco
+V12345,John,Doe,johndoe@example.com,+123456789,Ghana,Accra,Greater Accra,,Manager,True,1
+</pre>
+
+{% endblock %}
